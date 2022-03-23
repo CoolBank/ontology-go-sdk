@@ -34,7 +34,7 @@ type ClientMgr struct {
 	rest      *RestClient //Rest client used the rest api of ontology
 	ws        *WSClient   //Web socket client used the web socket api of ontology
 	defClient OntologyClient
-	qid       uint64
+	qid       int32
 }
 
 func (this *ClientMgr) NewRpcClient() *RpcClient {
@@ -367,5 +367,5 @@ func (this *ClientMgr) getClient() OntologyClient {
 }
 
 func (this *ClientMgr) getNextQid() string {
-	return fmt.Sprintf("%d", atomic.AddUint64(&this.qid, 1))
+	return fmt.Sprintf("%d", atomic.AddInt32(&this.qid, 1))
 }

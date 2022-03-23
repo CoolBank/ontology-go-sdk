@@ -350,9 +350,9 @@ func (this *OntologySdk) GetPrivateKeyFromMnemonicCodesStrBip44(mnemonicCodesStr
 	}
 	//m / purpose' / coin_type' / account' / change / address_index
 	//coin type 1024'
-	coin := 0x80000400
+	coin := 1024
 	//account 0'
-	account := 0x80000000
+	account := 0
 	key, err := bip44.NewKeyFromMasterKey(masterKey, uint32(coin), uint32(account), 0, index)
 	if err != nil {
 		return nil, err
